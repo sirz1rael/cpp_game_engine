@@ -1,2 +1,4 @@
 # cpp_game_engine
-demo game repo
+School-based project purely for education purposes.
+
+I'll update this README as I develop it further, sometimes :)
