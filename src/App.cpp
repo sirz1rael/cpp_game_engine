@@ -1,9 +1,10 @@
 #include "headers/App.h"
 
 void App::Game::init() {
-    std::cout << "App::Game init foo!" << std::endl;
+    if(glfwInit()){
+        std::cout << "App::Game init foo!" << std::endl;
+    } else {
+        std::cerr << "glfwInit error!" << std::endl;
+    }
 }
 
-void App::init() {
-    std::cout << "App::Init foo!" << std::endl;
-}

@@ -1,6 +1,8 @@
 #pragma once
-
+#define GLFW_DLL
 #include <iostream>
+
+#include <GLFW/glfw3.h>
 
 class App {
 public:
@@ -20,7 +22,6 @@ public:
         };
         void init();
     };
-    void init();
 private:
 
 };

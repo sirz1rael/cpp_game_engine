@@ -1,5 +1,6 @@
 #include "headers/App.h"
 
+
 int main(){
     App::Game application;
     App::Game::Settings app;
