@@ -15,12 +15,16 @@ public:
     };
     
     struct Game {
+        GLFWwindow *window;
+        double time;
+
         struct Settings {
             std::string logo_path = "";
-            int WINDOW_HEIGHT = 800;
-            int WINDOW_WIDTH  = 600;
+            static const int WINDOW_HEIGHT = 800;
+            static const int WINDOW_WIDTH  = 600;
         };
         void init();
+        void main_loop();
     };
 private:
 
