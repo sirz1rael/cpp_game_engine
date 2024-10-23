@@ -8,3 +8,9 @@ Using MAKE instead of CMake
 In future, will use CMake, but now, I don't understand how it works.
 
 Now it compiles & links without any errors, for now :D
+
+# 23.10.24 3:27
+Now for compile & build & run just use this command in MSYS term
+
+
+`make build & make run`
