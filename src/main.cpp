@@ -1,11 +1,9 @@
 #include "headers/App.h"
 
-
 int main(){
-    App::Game application;
-    App::Game::Settings app;
+    App *app = new App();
 
-    std::cout << app.WINDOW_HEIGHT << " x " << app.WINDOW_WIDTH << std::endl;
+    app->init(800, 800, "demo");
 
-    application.init(); 
+    delete app;
 }

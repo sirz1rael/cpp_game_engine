@@ -1,38 +1,28 @@
 #include "headers/App.h"
 
-void App::Game::init() {
-    if(glfwInit()){
-        std::cout << "LOG: GLFW Initializited" << std::endl;
-        // Creating window
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
-        window = glfwCreateWindow(Settings::WINDOW_WIDTH,
-                                  Settings::WINDOW_HEIGHT,
-                                  "Demo", nullptr, nullptr);
-        if(window) {
-            std::cout << "LOG: GLFWwindow create succesful" << std::endl;
-            main_loop();
-        } else {
-            std::cerr << "GLFWwindow create error!" << std::endl;
-        }
-    } else {
-        std::cerr << "glfwInit error!" << std::endl;
-    }
 
+void App::init(int window_width, int window_height, const char* title) {
+    if(glfwInit()) {
+       std::cout << "glfwInit() true" << std::endl; 
+       window = glfwCreateWindow(window_width,
+                                 window_height,
+                                 title, nullptr, nullptr);
+       main_loop();
+    } else std::cerr << "glfwInit() false" << std::endl;
 }
 
-void App::Game::main_loop() {  
-    glfwMakeContextCurrent(window);
+void App::main_loop() {
+    //LOOP UNTIL ESCAPE IS PRESSED
+    while(!glfwWindowShouldClose(window)) {
 
-    while (!glfwWindowShouldClose(window)) {
-        // commands in window while running
-        time = glfwGetTime();
+        glfwSwapBuffers(window);
+        glfwPollEvents();
 
-        std::cout << "Window is open " << time << " seconds." << std::endl;
-
-        if(time > 5) {
-            glfwSetWindowShouldClose(window, 1);
-            std::cout << "Window is closed after " << time << " seconds. "<< std::endl;
+        if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+            glfwSetWindowShouldClose(window, GLFW_TRUE);
+            std::cout << "Window is closed by user." << std::endl;
+        } else {
+            std::cout << "Window is open " << glfwGetTime() << " seconds. " << std::endl;
         }
     }
 }
